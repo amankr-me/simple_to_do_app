@@ -29,45 +29,11 @@ class TodoRepositoryImpl implements TodoRepository {
     }
   }
 
-  // @override
-  // Future<List<Todo>> filterTodos(TodoFilter todoFilter) async {
-  //   final filteredTodo;
-  //
-  //         if(todoFilter==TodoFilter.pending){
-  //           filteredTodo=List<Todo>.from(_todos)..removeWhere((element)=>element.completed==true);
-  //
-  //     }
-  //     else if(todoFilter==TodoFilter.completed){
-  //           filteredTodo=List<Todo>.from(_todos)..removeWhere((element)=>element.completed==false);
-  //
-  //     }else if(todoFilter==TodoFilter.all){
-  //           filteredTodo=List<Todo>.from(_todos);
-  //
-  //     }
-  //     else{
-  //           filteredTodo=List<Todo>.from(_todos);
-  //     }//
-  //   return filteredTodo;
-  // }
+
 
   @override
   Future<List<Todo>> getFilterTodos(TodoFilter todoFilter) async {
     List<Todo> filteredTodo;
-
-    // if(todoFilter==TodoFilter.pending){
-    //   filteredTodo=List<Todo>.from(_todos)..removeWhere((element)=>element.completed==true);
-    //
-    // }
-    // else if(todoFilter==TodoFilter.completed){
-    //   filteredTodo=List<Todo>.from(_todos)..removeWhere((element)=>element.completed==false);
-    //
-    // }else if(todoFilter==TodoFilter.all){
-    //   filteredTodo=List<Todo>.from(_todos);
-    //
-    // }
-    // else{
-    //   filteredTodo=List<Todo>.from(_todos);
-    // }//
 
     switch (todoFilter) {
       case TodoFilter.completed:
