@@ -13,7 +13,13 @@ class LoadTodos extends FilterTaskEvent {}
 class LoadFilterTodos extends FilterTaskEvent {
   final TodoFilter filter;
 
-  LoadFilterTodos(this.filter);
+  const LoadFilterTodos(this.filter);
+}
+
+class ChangeFilter extends FilterTaskEvent {
+  final TodoFilter filter;
+
+  const ChangeFilter(this.filter);
 }
 
 enum TodoFilter { all, completed, pending }

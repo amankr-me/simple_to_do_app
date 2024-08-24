@@ -9,5 +9,5 @@ abstract class AddTaskEvent extends Equatable {
 
 class AddTodoEvent extends AddTaskEvent {
   final Todo todo;
-  AddTodoEvent(this.todo);
+  const AddTodoEvent(this.todo);
 }

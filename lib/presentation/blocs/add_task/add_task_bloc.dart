@@ -1,7 +1,7 @@
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
-
+import 'package:simple_to_do_app/presentation/blocs/filter_task/filter_task_bloc.dart';
 import '../../../domain/entities/todo.dart';
 import '../../../domain/usecases/add_todo.dart';
 
@@ -24,7 +24,7 @@ class AddTaskBloc extends Bloc<AddTaskEvent, AddTaskState> {
       emit(AddTaskLoaded());
 
     } catch (_) {
-      emit(AddTaskError("Failed to add todo"));
+      emit(const AddTaskError("Failed to add todo"));
     }
   }
 }

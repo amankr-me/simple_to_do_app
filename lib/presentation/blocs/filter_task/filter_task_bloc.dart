@@ -14,21 +14,22 @@ class FilterTaskBloc extends Bloc<FilterTaskEvent, FilterTaskState> {
   List<Todo> _allTodos = [];
 
   FilterTaskBloc(this.getFilteredTodos, )
-      : super(FilterTaskInitial()) {
-    // on<LoadTodos>(_onLoadTodos);
+      : super( FilterTaskInitial()) {
     on<LoadFilterTodos>(_onFilterTodos);
   }
 
   Future<void> _onFilterTodos(LoadFilterTodos event, Emitter<FilterTaskState> emit) async {
+
     _allTodos = await getFilteredTodos(event.filter);
 
     if(_allTodos.isEmpty){
       emit(FilterTaskEmpty());
     }
     else{
-      emit(FilterTaskLoaded(_allTodos));
+      emit(FilterTaskLoaded(_allTodos,event.filter));
 
     }
 
   }
+
 }

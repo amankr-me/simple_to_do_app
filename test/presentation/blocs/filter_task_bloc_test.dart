@@ -33,7 +33,7 @@ void main() {
       },
       act: (bloc) => bloc.add(LoadFilterTodos(TodoFilter.pending)),
       expect: () => [
-        FilterTaskLoaded(filteredTodos),
+        FilterTaskLoaded(filteredTodos,TodoFilter.pending),
       ],
     );
 
