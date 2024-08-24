@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:simple_to_do_app/presentation/screens/dropdown_widget.dart';
@@ -22,12 +24,17 @@ class TodoScreen extends StatelessWidget {
       ),
       body: BlocBuilder<DropdownBloc, DropdownState>(
         builder: (dropdownContext, dropDownstate) {
+          print("dropDownstate");
+          print(dropDownstate);
           return Column(
             children: [
               DropdownWidget(),
               Expanded(
                 child: BlocBuilder<FilterTaskBloc, FilterTaskState>(
+
                   builder: (filterBlocContext, filterState) {
+                    print("filterState");
+                    print(filterState);
                     if (filterState is FilterTaskLoading) {
                       return const Center(child: CircularProgressIndicator());
                     } else if (filterState is FilterTaskLoaded) {
@@ -72,8 +79,8 @@ class TodoScreen extends StatelessWidget {
                                             .add(DeleteTodoEvent(todo));
                                         filterBlocContext
                                             .read<FilterTaskBloc>()
-                                            .add(LoadFilterTodos(
-                                            filterState.selectedFilter));
+                                            .add( LoadFilterTodos(
+                                            dropDownstate.selectedItem));
                                       },
                                     );
                                   },
@@ -138,14 +145,23 @@ class TodoScreen extends StatelessWidget {
               onPressed: () {
                 final title = controller.text;
                 if (title.isNotEmpty) {
-                  final todo = Todo(
-                    id: DateTime.now().toString(),
-                    title: title,
-                    completed: false,
-                  );
+                  // final todo = Todo(
+                  //   id: DateTime.now().toString(),
+                  //   title: title,
+                  //   completed: false,
+                  // );
                   context
                       .read<AddTaskBloc>()
-                      .add(AddTodoEvent(todo));
+                      .add(AddTodoEvent(Todo.fromJson(
+                      {"id": (DateTime
+                          .now()
+                          .microsecondsSinceEpoch +
+                          Random().nextInt(9999999)).toString(),
+                        "title":title,
+                        "completed": false,
+
+                      }
+                      )));
                   context
                       .read<FilterTaskBloc>()
                       .add(LoadFilterTodos(selectedFilter));

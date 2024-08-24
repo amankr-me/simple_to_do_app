@@ -4,7 +4,8 @@ import '../../domain/entities/todo.dart';
 import '../../domain/repositories/todo_repository.dart';
 
 class TodoRepositoryImpl implements TodoRepository {
-  final List<Todo> _todos = [];
+  List<Todo> _todos = [];
+
 
   @override
   Future<void> addTodo(Todo todo) async {
@@ -29,6 +30,12 @@ class TodoRepositoryImpl implements TodoRepository {
     }
   }
 
+
+  @override
+  Future<List<Todo>> getTodos(List<Todo> todos) async {
+    _todos=todos;
+    return _todos;
+  }
 
 
   @override

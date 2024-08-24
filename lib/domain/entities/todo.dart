@@ -1,5 +1,10 @@
-import 'package:equatable/equatable.dart';
+// import 'dart:convert';
 
+import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
+// part 'todo.g.dart';
+
+@JsonSerializable()
 class Todo extends Equatable {
   final String id;
   final String title;
@@ -26,4 +31,16 @@ class Todo extends Equatable {
 
   @override
   List<Object> get props => [id, title, completed];
+
+  factory Todo.fromJson(Map<String,dynamic> json) =>  Todo(
+    id: json['id'] as String,
+    title: json['title'] as String,
+    completed: json['completed'] as bool,
+  );
+
+  Map<String,dynamic> toJson() => <String, dynamic>{
+    'id': id,
+    'title': title,
+    'completed': completed,
+  };
 }

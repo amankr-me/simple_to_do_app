@@ -6,6 +6,8 @@ abstract class FilterTaskState extends Equatable {
 
   @override
   List<Object> get props => [];
+
+
 }
 
 class FilterTaskInitial extends FilterTaskState {}
@@ -17,13 +19,12 @@ class FilterTaskEmpty extends FilterTaskState {}
 
 class FilterTaskLoaded extends FilterTaskState {
   final List<Todo> todos;
-  final TodoFilter selectedFilter;
-
-  const FilterTaskLoaded(this.todos,this.selectedFilter);
+  const FilterTaskLoaded(this.todos);
 
   @override
   List<Object> get props => [todos];
 }
+
 
 class FilterTaskError extends FilterTaskState {
   final String message;
@@ -32,6 +33,9 @@ class FilterTaskError extends FilterTaskState {
 
   @override
   List<Object> get props => [message];
+
+
+
 }
 
 

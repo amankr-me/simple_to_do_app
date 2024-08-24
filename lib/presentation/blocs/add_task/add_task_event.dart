@@ -7,7 +7,7 @@ abstract class AddTaskEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class AddTodoEvent extends AddTaskEvent {
+class AddTodoEvent extends AddTaskEvent{
   final Todo todo;
   const AddTodoEvent(this.todo);
 }

@@ -60,9 +60,9 @@ void main() {
         BlocProvider<UpdateTaskBloc>(
           create: (BuildContext context) => UpdateTaskBloc(mockUpdateTodo),
         ),
-        BlocProvider<FilterTaskBloc>(
-          create: (BuildContext context) => FilterTaskBloc(mockGetFilteredTodos)..add(LoadFilterTodos(TodoFilter.all)),
-        ),
+        // BlocProvider<FilterTaskBloc>(
+        //   create: (BuildContext context) => FilterTaskBloc(mockGetFilteredTodos)..add(LoadFilterTodos(TodoFilter.all)),
+        // ),
       ],
       child: const MaterialApp(
         home: TodoScreen(),
