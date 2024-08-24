@@ -1,7 +1,6 @@
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:simple_to_do_app/presentation/blocs/filter_task/filter_task_bloc.dart';
 import '../../../domain/entities/todo.dart';
 import '../../../domain/usecases/add_todo.dart';
 
